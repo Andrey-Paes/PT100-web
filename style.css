@@ -1,0 +1,354 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+/* Estilos para centralizar e formatar a tela de login */
+#login-form {
+    /* Posiciona e centraliza o formulário na tela */
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px;
+    background-color: rgba(53, 3, 255, 0.3); /* Fundo semi-transparente */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(7, 129, 211, 0.3);
+    text-align: center;
+    z-index: 5; /* Garante que fique acima do fundo */
+}
+
+#login-form input, #login-form button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#login-form button {
+    text-align: center;
+    background-color: #009cdf; /* Cor do botão */
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+body, #conteudo {
+  background-color: #000000; /* fundo preto */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-name {
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  text-align: center;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #00f, 0 0 20px #ff0; /* brilho legal */
+  position: absolute;
+}
+.developer-name {
+  position: absolute;
+  bottom: 10px; /* distância do rodapé */
+  font-size: 12px; /* tamanho pequeno */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  opacity: 0.7; /* leve transparência */
+  width: 100%; /* centraliza horizontalmente */
+}
+
+#conteudo {
+  position: relative;
+  z-index: 10; /* Garante que fique na frente do canvas (z-index
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-color: transparent; /* se quiser ver o fundo galaxy atrás */
+}
+
+#conteudo.show {
+  opacity: 1;
+}
+/* Fundo Galaxy */
+
+  
+
+/* Fundo Galaxy */
+#galaxy {
+    position: fixed; /* Fixa o canvas na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Garante que fique no fundo */
+}
+.loader {
+  width: 100px;
+  height: 100px;
+  box-shadow: 0px 20px 40px #ff4646, 0px -20px 40px #8949ff, 20px 0px 40px #ff07fb, -20px 0px 40px #ff07fb;
+  border-radius: 50%; /* melhor usar 50% para círculo */
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-box {
+  background: rgba(0, 0, 0, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(0, 0, 0, 0.3);
+  border-top: 6px solid #1500ffff;
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Inicialmente o conteúdo do app fica escondido */
+/* Conteúdo Principal do Aplicativo (PTEMP) */
+#conteudo {
+    /* O JavaScript já define 'display: block', o que é ótimo. */
+    position: relative; /* Cria um novo contexto de empilhamento */
+    z-index: 10; /* Garante que fique na frente do canvas (z-index: 1) */
+    
+    /* Configuração opcional para centralizar ou dar margem ao seu app */
+    margin: 50px auto; /* Adiciona margem vertical e centraliza horizontalmente se tiver largura definida */
+    padding: 20px;
+    
+    /* Se você quer que o app tenha um fundo sólido para que o Galaxy não o atrapalhe: */
+    /* background-color: rgba(29, 16, 41, 0.9); */ 
+}
+ 
+/* Sensor como imagem */
+.sensor-image {
+  position: fixed;
+  bottom: -150px; /* "vaza" um pouco para fora */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 450px;
+  min-width: 450px;
+}
+
+/* Inputs fixos acima do sensor */
+.inputs-container {
+  position: fixed;
+  bottom: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* REMOVA ESTA LINHA: z-index: -1; */ 
+  width: 50vw;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+
+.input-box {
+  fonnt-size: 5px;
+  text-align: center;
+  font-family:sans-serif;
+  background: rgba(8, 2, 32, 0.23);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 0 5px;
+}
+.input-box1 h3 {
+  font-family: sans-serif;
+  text-align: center;
+  margin:0 5px;
+  padding: none;
+  font-weight: normal;
+  color: #2fff00ff;
+  padding-bottom: 10px;
+  font-size: 10px;
+  position: fixed;
+  bottom: -60px; /* "vaza" um pouco para fora */
+  left: 45%;
+  transform: translateX(-40%);
+  width: 95vw;
+  max-width: 60px;
+  min-width: 80px;
+}
+.input-box1 input {
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  background: rgba(119, 255, 0, 1);
+  font-size: 10px;
+  position: fixed;
+  bottom: -75px; /* "vaza" um pouco para fora */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 65px;
+  min-width: 65px;
+ 
+}
+.input-box h3 {
+  margin:0 5px;
+  padding: none;
+  font-size: 15px;
+  font-weight: normal;
+  color: #ffffffff;
+  padding-bottom: 3px;
+}
+input {
+  color: white;
+  background: transparent;
+  border: 1px solid #c3c3c3ff;
+}
+
+.input-box input {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  text-align: center;
+  background: rgba(62, 44, 228, 0.99);
+}
+button {
+  --border-radius: 10px;
+  --border-width: 5px;
+  appearance: none;
+  position: relative;
+  padding:10px;
+  border: 90vw;
+  background-color: #000000ff;
+  font-family:Arial;
+  font-size: 20px;
+  font-weight: 40;
+  color: #fefefed0;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  z-index: -1;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+button::after {
+  --m-i: linear-gradient(#000, #080808ff);
+  --m-o: content-box, padding-box;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--border-width);
+  border-radius: var(--border-radius);
+  background-image: conic-gradient(
+    #fb48fbff,
+    #29dbbc,
+    #ddf505,
+    #ff9f0e,
+    #e440bb,
+    #655adc,
+    #488cfb
+  );
+  -webkit-mask-image: var(--m-i), var(--m-i);
+  mask-image: var(--m-i), var(--m-i);
+  -webkit-mask-origin: var(--m-o);
+  mask-origin: var(--m-o);
+  -webkit-mask-clip: var(--m-o);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  filter: hue-rotate(0);
+  animation: rotate-hue linear 700ms infinite;
+  animation-play-state: ;
+}
+
+button:hover::after {
+  animation-play-state: running;
+}
+
+@keyframes rotate-hue {
+  to {
+    filter: hue-rotate(1turn);
+  }
+}
+
+button,
+button::after {
+  box-sizing: border-box;
+}
+
+button:active {
+  --border-width: 50px;
+}
+
+/* Telas muito pequenas (até 480px, celular em pé) */
+@media (max-width: 375px) {
+  .inputs-container {
+    padding: none;
+    margin-top: none;
+    margin-bottom: 290px;
+    bottom: 1px;
+    width: 70vw;
+    gap: 2px;
+  }
+
+  #sensor-img {
+    width: 40vw;
+  }
+}
+body {
+  font-size: 14px;
+  padding: 0 20px;
+  margin-bottom: 80px;
+}
+  @media (max-width: 375px) {
+    .input-box input {
+      margin-top: none;
+      margin-bottom: 400;
+      width: 100px;
+      padding: 1px;
+      border-radius: 30px;
+      font-size: 11px;
+    }
+  }
+}
