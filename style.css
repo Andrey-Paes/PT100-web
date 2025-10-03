@@ -1,77 +1,191 @@
+/* Reset básico */
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
   font-family: Arial, sans-serif;
   color: white;
-}
-
-body, #conteudo {
-  background-color: #000000; /* fundo preto */
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+  background-color: #000;
 }
 
 .app-name {
-  color: #ffffffff;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 32px;
   text-align: center;
-  margin-top: 20px;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(255, 0, 225, 1), 0 0 20px rgba(255, 0, 0, 1); /* brilho legal */
   position: absolute;
-}
-.developer-name {
-  position: absolute;
-  bottom: 10px; /* distância do rodapé */
-  font-size: 12px; /* tamanho pequeno */
-  color: #ffffffff;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  opacity: 0.7; /* leve transparência */
-  width: 100%; /* centraliza horizontalmente */
+  top: 20px;
+  width: 100%;
+
+  /* Gradiente animado */
+  background: linear-gradient(270deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 4s ease infinite;
 }
 
-#conteudo {
-  position: relative;
-  z-index: 10; /* Garante que fique na frente do canvas (z-index
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  background-color: transparent; /* se quiser ver o fundo galaxy atrás */
+/* Animação do gradiente */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-
-#conteudo.show {
-  opacity: 1;
-} 
-
-/* Fundo Galaxy */
-#galaxy {
-    position: fixed; /* Fixa o canvas na tela */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* Garante que fique no fundo */
-}
-.loader {
-  width: 100px;
-  height: 100px;
-  box-shadow: 0px 20px 40px #ff4646, 0px -20px 40px #8949ff, 20px 0px 40px #ff07fb, -20px 0px 40px #ff07fb;
-  border-radius: 50%; /* melhor usar 50% para círculo */
-  animation: rotate 1s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
+/* Loader completo */
+/* Loader completo */
 #loader {
   position: fixed;
   inset: 0;
-  background: #1d1029; /* fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1d1029;
+  z-index: 1000;
+}
+
+.loader {
+  position: absolute; /* Para posicionar o texto dentro */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0px 20px 40px #ff4646, 0px -20px 40px #8949ff,
+    20px 0px 40px #ff07fb, -20px 0px 40px #ff07fb;
+  animation: rotate 1.5s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader .app-name {
+  position: absolute; /* relativo ao .loader */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Orbitron", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  background: linear-gradient(270deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 4s ease infinite;
+}
+
+/* Animações */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.nome-animado {
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+  background: linear-gradient(270deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 4s ease infinite;
+  position: absolute;
+  bottom: 10px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  opacity: 0.7;
+  width: 100%;
+}
+
+/* Reutilizando a animação que você já tem */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+#saidaTemp {
+  font-family: "Orbitron", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
+  /* Gradiente estilo fogo vertical */
+  background: linear-gradient(
+    0deg,
+    #ff0000,
+    #ff4500,
+    #ffa500,
+    #ff0000ff,
+    #ff8c00,
+    #ff4500,
+    #ff0000
+  );
+  background-size: 100% 300%; /* largura fixa, altura maior para animar vertical */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Animação do gradiente subindo */
+  animation: fire-gradient-vertical 2s linear infinite;
+}
+
+@keyframes fire-gradient-vertical {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+} /* Conteúdo principal */
+#conteudo {
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-color: transparent;
+}
+#conteudo.show {
+  opacity: 1;
+}
+
+/* Fundo Galaxy */
+#galaxy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Loader principal (caixa centralizada) */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #1d1029;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,9 +201,8 @@ body, #conteudo {
 }
 
 .loader-box {
-  background: rgba(0, 0, 0, 1);
+  background: #000;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 20px;
   display: flex;
@@ -97,68 +210,89 @@ body, #conteudo {
   align-items: center;
 }
 
+/* Loader neon circular */
+.loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 20px 40px #ff4646, 0px -20px 40px #8949ff,
+    20px 0px 40px #ff07fb, -20px 0px 40px #ff07fb;
+  animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loader simples com borda */
 .spinner {
   width: 60px;
   height: 60px;
   border: 6px solid rgba(0, 0, 0, 0.3);
-  border-top: 6px solid #1500ffff;
+  border-top: 6px solid #1500ff;
   border-radius: 50%;
   animation: girar 1s linear infinite;
   margin-bottom: 15px;
 }
-.input-box select {
-  font-size: 15px;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  box-shadow: 0 0 5px #000003ff;
-  border: 1px solid #000000;
-  background: rgba(255, 255, 255, 1);
-}
 @keyframes girar {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-/* Inicialmente o conteúdo do app fica escondido */
-/* Conteúdo Principal do Aplicativo (PTEMP) */
+/* Select estilizado */
+.input-box select {
+  appearance: none;
+  background-color: #0e0e0e;
+  color: #fff;
+  border: 1px solid #f7f7f7;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+.input-box select:focus {
+  outline: none;
+  border: 1px solid #888;
+}
+
+/* Conteúdo com fade-in */
 #conteudo.fade-in {
-    display: block !important; /* O JavaScript já define 'display: block', o que é ótimo. */
-    position: relative; /* Cria um novo contexto de empilhamento */
-    z-index: 10; /* Garante que fique na frente do canvas (z-index: 1) */
-    
-    /* Configuração opcional para centralizar ou dar margem ao seu app */
-    margin: 50px auto; /* Adiciona margem vertical e centraliza horizontalmente se tiver largura definida */
-    padding: 20px;
-    background: rgba(0, 0, 0, 0); 
-   opacity: 1 !important;
+  display: block !important;
+  margin: 50px auto;
+  padding: 20px;
+  background: transparent;
+  opacity: 1 !important;
   visibility: visible !important;
-  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;* Fundo semi-transparente */
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
+/* Logo */
 .logo {
-  position: fixed; /* CRÍTICO: Mantém o logo fixo na tela */
-  
-  /* POSICIONAMENTO VERTICAL: Mantenha-o próximo à parte inferior (rodapé) */
-  bottom: 20px;    /* Distância de 20px da borda inferior da tela (ajuste se quiser mais) */
-  top: auto;       /* Define top como automático para não entrar em conflito com bottom */
-
-  /* POSICIONAMENTO HORIZONTAL: Centralização perfeita */
-  left: 50%;       /* Inicia o posicionamento a 50% da largura da tela */
-  transform: translateX(-50%); /* CRÍTICO: Move o logo de volta em 50% de sua PRÓPRIA largura */
-  
-  /* TAMANHO */
-  width: 40vw;     /* Ocupa 20% da largura da viewport (VW) */
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40vw;
   height: auto;
-  max-width: 200px; /* Limita o tamanho máximo em telas grandes (opcional, mas recomendado) */
-  min-width: 100px; /* Garante um tamanho mínimo em telas muito pequenas (opcional) */
-  
-  z-index: 20;     /* Garante que ele fique acima do conteúdo normal */
+  max-width: 200px;
+  min-width: 100px;
+  z-index: 20;
 }
-/* Sensor como imagem */
+
+/* Sensor */
 .sensor-image {
   position: fixed;
-  bottom: -150px; /* "vaza" um pouco para fora */
+  bottom: -150px;
   left: 50%;
   transform: translateX(-50%);
   width: 90vw;
@@ -166,7 +300,7 @@ body, #conteudo {
   min-width: 450px;
 }
 
-/* Inputs fixos acima do sensor */
+/* Inputs */
 .inputs-container {
   position: fixed;
   bottom: 300px;
@@ -175,68 +309,26 @@ body, #conteudo {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* REMOVA ESTA LINHA: z-index: -1; */ 
   width: 50vw;
   max-width: 300px;
   min-width: 200px;
 }
 
-
 .input-box {
-  fonnt-size: 5px;
   text-align: center;
-  font-family:sans-serif;
+  font-family: sans-serif;
   background: rgba(8, 2, 32, 0.23);
   backdrop-filter: blur(10px);
   border-radius: 50px;
   padding: 10px;
-  text-align: center;
-  margin-bottom: 0 5px;
 }
-.input-box1 h3 {
-  font-family: sans-serif;
-  text-align: center;
-  margin:0 5px;
-  padding: none;
-  font-weight: normal;
-  color: #2fff00ff;
-  padding-bottom: 10px;
-  font-size: 10px;
-  position: fixed;
-  bottom: -60px; /* "vaza" um pouco para fora */
-  left: 45%;
-  transform: translateX(-40%);
-  width: 95vw;
-  max-width: 60px;
-  min-width: 80px;
-}
-.input-box1 input {
-  
-  border: none;
-  border-radius: 10px;
-  text-align: center;
-  background: rgba(11, 23, 1, 0.27);
-  font-size: 30px;
-  position: fixed;
-  bottom: -75px; /* "vaza" um pouco para fora */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
- 
- 
-}
+
 .input-box h3 {
-  margin:0 5px;
-  padding: none;
   font-size: 15px;
   font-weight: normal;
-  color: #ffffffff;
+  color: #fff;
+  margin: 0 5px;
   padding-bottom: 3px;
-}
-input {
-  color: white;
-  background: transparent;
-  border: 1px solid #c3c3c3ff;
 }
 
 .input-box input {
@@ -247,42 +339,61 @@ input {
   font-size: 16px;
   text-align: center;
   background: rgba(62, 44, 228, 0.99);
+  color: white;
 }
+
+/* Input especial */
+.input-box1 h3 {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: normal;
+  color: #3bf30e;
+  font-size: 10px;
+  position: fixed;
+  bottom: -60px;
+  left: 45%;
+  transform: translateX(-40%);
+  width: 95vw;
+}
+.input-box1 input {
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  background: rgba(22, 46, 3, 0.27);
+  font-size: 30px;
+  position: fixed;
+  bottom: -75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+}
+
+/* Botão */
 button {
   --border-radius: 10px;
   --border-width: 5px;
   appearance: none;
   position: relative;
-  padding:10px;
-  border: 90vw;
-  background-color: #000000ff;
-  font-family:Arial;
+  padding: 10px;
+  background-color: #000;
+  font-family: Arial;
   font-size: 20px;
-  font-weight: 40;
-  color: #fefefed0;
+  color: #fefefe;
   cursor: pointer;
   border-radius: var(--border-radius);
   overflow: hidden;
-  z-index: -1;
   width: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   display: block;
 }
-
 button::after {
-  --m-i: linear-gradient(#000, #080808ff);
-  --m-o: content-box, padding-box;
   content: "";
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   padding: var(--border-width);
   border-radius: var(--border-radius);
   background-image: conic-gradient(
-    #fb48fbff,
+    #fb48fb,
     #29dbbc,
     #ddf505,
     #ff9f0e,
@@ -290,68 +401,40 @@ button::after {
     #655adc,
     #488cfb
   );
-  -webkit-mask-image: var(--m-i), var(--m-i);
-  mask-image: var(--m-i), var(--m-i);
-  -webkit-mask-origin: var(--m-o);
-  mask-origin: var(--m-o);
-  -webkit-mask-clip: var(--m-o);
+  -webkit-mask: linear-gradient(#000, #000) content-box,
+    linear-gradient(#000, #000) padding-box;
   mask-composite: exclude;
   -webkit-mask-composite: destination-out;
   filter: hue-rotate(0);
   animation: rotate-hue linear 700ms infinite;
-  animation-play-state: ;
 }
-
 button:hover::after {
   animation-play-state: running;
 }
-
 @keyframes rotate-hue {
   to {
     filter: hue-rotate(1turn);
   }
 }
 
-button,
-button::after {
-  box-sizing: border-box;
-}
-
-button:active {
-  --border-width: 50px;
-}
-
-/* Telas muito pequenas (até 480px, celular em pé) */
+/* Responsivo */
 @media (max-width: 375px) {
   .inputs-container {
-    padding: none;
-    margin-top: none;
-    margin-bottom: 290px;
     bottom: 1px;
     width: 70vw;
     gap: 2px;
   }
-#logo {
+  #logo {
     width: 60vw;
-    top: 80vw; /* distância do topo */
+    top: 80vw;
   }
   #sensor-img {
     width: 40vw;
   }
-}
-body {
-  font-size: 14px;
-  padding: 0 20px;
-  margin-bottom: 80px;
-}
-  @media (max-width: 375px) {
-    .input-box input {
-      margin-top: none;
-      margin-bottom: 400;
-      width: 100px;
-      padding: 1px;
-      border-radius: 30px;
-      font-size: 11px;
-    }
+  .input-box input {
+    width: 100px;
+    padding: 1px;
+    border-radius: 30px;
+    font-size: 11px;
   }
 }
