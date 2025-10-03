@@ -1,68 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Elementos DOM
-  const loader = document.getElementById("loader"); // Elemento do Loader
-  const loginForm = document.getElementById("login-form");
-  const loginFormulario = document.getElementById("loginFormulario");
-  const usernameInput = document.getElementById("username");
-  const passwordInput = document.getElementById("password");
-  const mensagemErro = document.getElementById("mensagemErro");
-  const conteudoApp = document.getElementById("conteudo");
+// script.js
 
-  // Oculta o formulário de login e o app no início, até que o loader termine
-  loginForm.style.display = "none";
-  conteudoApp.style.display = "none";
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const conteudo = document.getElementById("conteudo");
 
-  // 2. Lógica para esconder o Loader e mostrar o Formulário de Login
-  // O evento 'load' é usado aqui para garantir que todas as imagens (como o sensor)
-  // e o loader em si tenham terminado de carregar.
-  window.addEventListener("load", () => {
-    // Tempo que o loader fica visível (500ms é um tempo razoável após o load)
-    setTimeout(() => {
-      // 1. Esconde o loader
-      if (loader) {
-        loader.style.display = "none";
-      }
-
-      // 2. Mostra a tela de login
-      loginForm.style.display = "block";
-      usernameInput.focus();
-
-      // **IMPORTANTE**: Certifique-se de que a variável 'conteudo' antiga
-      // e o bloco 'window.addEventListener("load", ...)' anterior foram removidos
-      // como instruído anteriormente.
-    }, 5000);
-  });
-
-  // 3. CREDENCIAIS VÁLIDAS
-  const USUARIO_CORRETO = "admin";
-  const SENHA_CORRETA = "1234";
-
-  // 4. Função de Login
-  loginFormulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const user = usernameInput.value.trim();
-    const pass = passwordInput.value.trim();
-
-    // 5. Checagem de Credenciais
-    if (user === USUARIO_CORRETO && pass === SENHA_CORRETA) {
-      // LOGIN BEM-SUCEDIDO:
-
-      loginForm.style.display = "none";
-
-      // MOSTRA a tela principal do aplicativo PTEMP
-      conteudoApp.style.display = "block";
-    } else {
-      // LOGIN FALHOU:
-      mensagemErro.style.display = "block";
-      passwordInput.value = "";
-      passwordInput.focus();
-    }
-  });
-
-  // 6. O restante do seu código PTEMP (cálculo, galaxy, etc.) deve vir aqui.
-});
-// ===== Fundo estilo Galáxia =====
+  // Esconde o loader depois de 3s
+  setTimeout(() => {
+    loader.style.display = "none";
+    conteudo.style.display = "block";
+  }, 115000);
+}); // ===== Fundo estilo Galáxia =====
 const canvas = document.getElementById("galaxy");
 const ctx = canvas.getContext("2d");
 
