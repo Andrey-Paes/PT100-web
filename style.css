@@ -113,7 +113,7 @@ body, #conteudo {
   outline: none;
   box-shadow: 0 0 5px #000003ff;
   border: 1px solid #000000;
-  background: rgba(211, 211, 215, 0.47);
+  background: rgba(0, 0, 0, 1);
 }
 @keyframes girar {
   0% { transform: rotate(0deg); }

@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (conteudoApp) {
         conteudoApp.classList.add("fade-in"); // mostra o app
       }
-    }, 3000); // 3 segundos (pode mudar)
+    }, 5000); // 3 segundos (pode mudar)
   });
 });
 // ... (Se você tem código da galáxia que não precisa dos elementos, pode ficar aqui embaixo)
