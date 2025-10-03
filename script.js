@@ -1,15 +1,20 @@
-// script.js
-
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
-  const conteudo = document.getElementById("conteudo");
+  const conteudoApp = document.getElementById("conteudo");
 
-  // Esconde o loader depois de 3s
-  setTimeout(() => {
-    loader.style.display = "none";
-    conteudo.style.display = "block";
-  }, 115000);
-}); // ===== Fundo estilo Galáxia =====
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      if (loader) {
+        loader.classList.add("fade-out"); // some com o loader
+      }
+      if (conteudoApp) {
+        conteudoApp.classList.add("fade-in"); // mostra o app
+      }
+    }, 3000); // 3 segundos (pode mudar)
+  });
+});
+// ... (Se você tem código da galáxia que não precisa dos elementos, pode ficar aqui embaixo)
+// ===== Fundo estilo Galáxia =====
 const canvas = document.getElementById("galaxy");
 const ctx = canvas.getContext("2d");
 

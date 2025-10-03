@@ -14,20 +14,20 @@ body, #conteudo {
 }
 
 .app-name {
-  color: #ffffff;
+  color: #ffffffff;
   font-family: 'Orbitron', sans-serif;
   font-size: 32px;
   text-align: center;
   margin-top: 20px;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px #00f, 0 0 20px #ff0; /* brilho legal */
+  text-shadow: 0 0 10px rgba(255, 0, 225, 1), 0 0 20px rgba(255, 0, 0, 1); /* brilho legal */
   position: absolute;
 }
 .developer-name {
   position: absolute;
   bottom: 10px; /* distância do rodapé */
   font-size: 12px; /* tamanho pequeno */
-  color: #ffffff;
+  color: #ffffffff;
   font-family: Arial, sans-serif;
   text-align: center;
   opacity: 0.7; /* leve transparência */
@@ -70,15 +70,20 @@ body, #conteudo {
 
 #loader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(181, 181, 181, 0);
+  inset: 0;
+  background: #1d1029; /* fundo */
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 9999;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+#loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .loader-box {
@@ -101,7 +106,15 @@ body, #conteudo {
   animation: girar 1s linear infinite;
   margin-bottom: 15px;
 }
-
+.input-box select {
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0 0 5px #000003ff;
+  border: 1px solid #000000;
+  background: rgba(211, 211, 215, 0.47);
+}
 @keyframes girar {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -109,27 +122,39 @@ body, #conteudo {
 
 /* Inicialmente o conteúdo do app fica escondido */
 /* Conteúdo Principal do Aplicativo (PTEMP) */
-#conteudo {
-    /* O JavaScript já define 'display: block', o que é ótimo. */
+#conteudo.fade-in {
+    display: block !important; /* O JavaScript já define 'display: block', o que é ótimo. */
     position: relative; /* Cria um novo contexto de empilhamento */
     z-index: 10; /* Garante que fique na frente do canvas (z-index: 1) */
     
     /* Configuração opcional para centralizar ou dar margem ao seu app */
     margin: 50px auto; /* Adiciona margem vertical e centraliza horizontalmente se tiver largura definida */
     padding: 20px;
-    background: rgba(0, 0, 0, 0); /* Fundo semi-transparente */
+    background: rgba(0, 0, 0, 0); 
+   opacity: 1 !important;
+  visibility: visible !important;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;* Fundo semi-transparente */
 }
+
 .logo {
-  position: fixed;
-  top: 100vw; /* distância do topo */
-  left: 50%;
-  transform: translateX(-50%);
-  width:20vw; /* ajuste conforme necessário */
+  position: fixed; /* CRÍTICO: Mantém o logo fixo na tela */
+  
+  /* POSICIONAMENTO VERTICAL: Mantenha-o próximo à parte inferior (rodapé) */
+  bottom: 20px;    /* Distância de 20px da borda inferior da tela (ajuste se quiser mais) */
+  top: auto;       /* Define top como automático para não entrar em conflito com bottom */
+
+  /* POSICIONAMENTO HORIZONTAL: Centralização perfeita */
+  left: 50%;       /* Inicia o posicionamento a 50% da largura da tela */
+  transform: translateX(-50%); /* CRÍTICO: Move o logo de volta em 50% de sua PRÓPRIA largura */
+  
+  /* TAMANHO */
+  width: 40vw;     /* Ocupa 20% da largura da viewport (VW) */
   height: auto;
-  z-index: 20; 
-  max-width: 50vw;
-  min-width: 30vw;/* garante que fique acima de outros elementos */
-} 
+  max-width: 200px; /* Limita o tamanho máximo em telas grandes (opcional, mas recomendado) */
+  min-width: 100px; /* Garante um tamanho mínimo em telas muito pequenas (opcional) */
+  
+  z-index: 20;     /* Garante que ele fique acima do conteúdo normal */
+}
 /* Sensor como imagem */
 .sensor-image {
   position: fixed;
