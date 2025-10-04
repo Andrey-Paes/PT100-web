@@ -429,7 +429,7 @@ button:hover::after {
 }
 
 /* Responsivo */
-@media (max-width: 359px) {
+@media (max-width: 358px) {
   .inputs-container {
     bottom: 1px;
     width: 70vw;
