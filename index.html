@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio com Sensor</title>
+
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -15,23 +16,23 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-5HEC0182FX");
     </script>
+
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
       rel="stylesheet"
     />
   </head>
+
   <body>
     <canvas id="galaxy"></canvas>
 
     <div id="loader">
       <div class="loader"></div>
       <h1 class="app-name">PTEMP</h1>
-      <img src="Img/Group 1.png" alt="Grupo 1" class="logo" />
-      <div class="nome-animado">Andreivison Paes</div>
+      <div class="nome-animado">Dev Andreivison Paes</div>
     </div>
 
     <div id="conteudo" style="display: none">
@@ -47,6 +48,7 @@
             <option value="200">0 a 200°C</option>
           </select>
         </div>
+
         <div class="input-box">
           <h3>Resistência (Ω)</h3>
           <input id="res" type="number" placeholder=" Ex:100Ω " />
@@ -60,9 +62,11 @@
           <h3>Saída 4 a 20Ma</h3>
           <input id="saida" type="text" placeholder="4 a 20mA" readonly />
         </div>
+
         <button id="btnCalcular">Calcular</button>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

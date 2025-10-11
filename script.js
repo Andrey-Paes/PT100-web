@@ -5,15 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", () => {
     setTimeout(() => {
       if (loader) {
-        loader.classList.add("fade-out"); // some com o loader
+        loader.classList.add("fade-out");
       }
       if (conteudoApp) {
-        conteudoApp.classList.add("fade-in"); // mostra o app
+        conteudoApp.classList.add("fade-in");
       }
-    }, 6500); // 3 segundos (pode mudar)
+    }, 4000);
   });
 });
-// ... (Se você tem código da galáxia que não precisa dos elementos, pode ficar aqui embaixo)
+
 // ===== Fundo estilo Galáxia =====
 const canvas = document.getElementById("galaxy");
 const ctx = canvas.getContext("2d");
@@ -307,16 +307,13 @@ function calcular() {
     return;
   }
 
-  // ATUALIZADO: Inclui a faixa 50 na validação
   if (![50, 100, 150, 200].includes(faixa)) {
     alert("Selecione a faixa (50, 100, 150 ou 200).");
     return;
   }
 
   const temp = resistenciaParaTemperatura(R);
-  // ... (o restante da função calcular() permanece o mesmo) ...
 
-  // ... (e o restante do seu script, incluindo a tabelaPT100 completa, permanece o mesmo) ...
   if (temp === null) {
     tempEl.value = "Fora da tabela";
     saidaEl.value = "—";

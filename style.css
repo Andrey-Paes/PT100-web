@@ -37,7 +37,7 @@ body {
   }
 }
 /* Loader completo */
-/* Loader completo */
+
 #loader {
   position: fixed;
   inset: 0;
@@ -49,7 +49,7 @@ body {
 }
 
 .loader {
-  position: absolute; /* Para posicionar o texto dentro */
+  position: absolute;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -62,7 +62,7 @@ body {
 }
 
 .loader .app-name {
-  position: absolute; /* relativo ao .loader */
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -115,7 +115,6 @@ body {
   width: 100%;
 }
 
-/* Reutilizando a animação que você já tem */
 @keyframes gradient-animation {
   0% {
     background-position: 0% 50%;
@@ -143,9 +142,9 @@ body {
     #fffc61ff,
     #ffaa00ff,
     #ff0000ff,
-    #c0d727ff /* borda escura quase preta */
+    #c0d727ff
   );
-  background-size: 100% 300%; /* largura fixa, altura maior para animar vertical */
+  background-size: 100% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -167,7 +166,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* atrás do input */
+  z-index: 1;
   pointer-events: none;
 }
 /* Conteúdo principal */
